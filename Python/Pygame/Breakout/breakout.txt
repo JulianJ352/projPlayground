@@ -1,0 +1,32 @@
+#source: LinuxFormat Magazine, issue 306
+
+import pygame
+import Constants
+
+class BaseSPrite(pygame.sprite.Sprite):
+  def_init_(self, width, height, positionX, positionY, image, spriteType="image", color=None, countdown=None, clock=None, powerValue=None):
+  super().__init__()
+  self_originalWidth=width
+  self._width=width
+  self.originalHeight=height
+  self._height=height
+  self._positionX=positionX
+  self._positionY=positionY
+
+
+  def updateRect(self);
+  self._rect.topleft = (self._positionX, self._positionY)
+  self._rect.bottomleft = (self.positionX, self._positionY+self._positionY)
+  self.rect.bottomright=(self.positionX + self_width, self._positionY + self.height)
+  self.rect.height = self. height
+  self.rect.width = self.width
+
+  @property
+  def positionX(self):
+    return self._positionX
+
+
+  @positionX.setter
+  def positionX(self, value):
+    self._positionX = value
+    self.updateRect()

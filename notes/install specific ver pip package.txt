@@ -1,0 +1,4 @@
+opencv 4.8.0.74
+
+pip install opencv-python
+pip install --force-reinstall -v "opencv-python==4.8.0.74"
