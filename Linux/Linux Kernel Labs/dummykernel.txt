@@ -1,0 +1,43 @@
+/*
+Source: https://linux-kernel-labs.github.io/refs/heads/master/labs/kernel_modules.html
+compilation instructions:
+need makefile, kbuild makefile
+Makefile example:
+
+KDIR = /lib/modules/'uname -r'/kbuild
+
+kbuild:
+  make -C $(KDIR) M='pwd'
+
+clean:
+  make -C $(KDIR) M='pwd' clean
+
+Kbuild file:
+  EXTRA_CLFAGS = -Wall -g
+  obj-m = modul.o
+
+  more notes:
+  
+*/
+#include <linux/kernel.h>
+#include <linux/init.h>
+#include <linux/module.h>
+
+MODULE_DESCRIPTION("Julian's Kernel Module!!");
+MODULE_AUTHOR("Julian");
+MODULE_LICENSE("GPL");
+
+static int dummy init(void)
+{
+  pr_debug("Hi\n");
+  return 0;
+
+}
+
+static void dummy_exit(void)
+{
+  pr_debug("Bye\n");
+}
+
+module_init(dummy_init);
+module_exit(dummy_exit);
